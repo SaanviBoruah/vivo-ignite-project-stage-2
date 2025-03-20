@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Emotion Detection</title>
+    <title>Image Emotion Detection</title>
 </head>
 <body>
     <h1>Upload Image for Emotion Analysis</h1>
-    <form action="/analyze" method="post" enctype="multipart/form-data">
+    <form method="POST" action="/analyze" enctype="multipart/form-data">
         <input type="file" name="file" accept="image/*" required>
-        <input type="submit" value="Analyze">
+        <button type="submit">Analyze</button>
     </form>
 </body>
 </html>
