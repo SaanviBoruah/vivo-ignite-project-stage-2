@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+</head>
+<body>
+    <h1>Analysis Results</h1>
+    <div style="display: flex;">
+        <div style="margin-right: 20px;">
+            <h3>Original Image</h3>
+            <img src="{{ original }}" style="max-width: 500px;">
+        </div>
+        <div>
+            <h3>Processed Image</h3>
+            <img src="{{ processed }}" style="max-width: 500px;">
+        </div>
+    </div>
+    
+    <h2>Emotion Breakdown</h2>
+    {% if results %}
+        {% for face in results %}
+            <h3>Face {{ loop.index }}</h3>
+            <ul>
+                {% for emotion, score in face.emotions.items() %}
+                    <li>{{ emotion }}: {{ "%.2f"|format(score) }}%</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    {% else %}
+        <p>No faces detected in the image</p>
+    {% endif %}
+</body>
+</html>
